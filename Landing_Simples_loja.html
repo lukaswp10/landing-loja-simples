@@ -1,0 +1,211 @@
+<!doctype html>
+
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Nome da Loja ? Endereço</title>
+
+  <meta name="description" content="Página de contato e endereço da Loja" />
+
+  <style>
+
+    :root{--bg:#f7f7f8;--card:#ffffff;--accent:#1f6feb;--muted:#666;--radius:18px}
+
+    *{box-sizing:border-box}
+
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#111}
+
+    .container{max-width:980px;margin:36px auto;padding:20px}
+
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 22px rgba(15,15,15,0.08);overflow:hidden}
+
+    header{display:flex;align-items:center;gap:16px;padding:18px}
+
+    .logo{width:86px;height:86px;border-radius:10px;overflow:hidden;background:#eee;display:flex;align-items:center;justify-content:center}
+
+    .logo img{width:100%;height:100%;object-fit:contain}
+
+    .brand{flex:1}
+
+    .brand h1{margin:0;font-size:20px}
+
+    .brand p{margin:4px 0 0;color:var(--muted)}
+
+    .hero{height:420px;background:#ddd;display:block;overflow:hidden}
+
+    .hero img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .content{padding:22px;display:grid;grid-template-columns:1fr 320px;gap:18px}
+
+    .about h2{margin:0 0 10px}
+
+    .address{background:#fafbff;border-radius:12px;padding:14px}
+
+    .address p{margin:6px 0;color:var(--muted)}
+
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;background:var(--accent);color:#fff;font-weight:600}
+
+    .map{width:100%;height:220px;border-radius:10px;overflow:hidden;background:#eaeaea}
+
+    footer{padding:18px;border-top:1px solid rgba(0,0,0,0.04);text-align:center;color:var(--muted);font-size:13px}
+
+
+
+    /* responsivo */
+
+    @media (max-width:860px){.content{grid-template-columns:1fr}.hero{height:260px}.logo{width:64px;height:64px}}
+
+  </style>
+
+</head>
+
+<body>
+
+  <main class="container">
+
+    <section class="card">
+
+      <header>
+
+        <div class="logo" id="logo-placeholder">
+
+          <!-- Substitua logo.png -->
+
+          <img src="logo.png" alt="Logo da loja" onerror="this.style.filter='grayscale(1)';this.alt='Logo não encontrado'" />
+
+        </div>
+
+        <div class="brand">
+
+          <h1 id="store-name">Nome da Loja</h1>
+
+          <p id="store-sub">Horário: Seg-Sex 09:00?18:00 · Contato: (00) 0000-0000</p>
+
+        </div>
+
+        <div>
+
+          <a class="btn" href="#mapa">Como chegar</a>
+
+        </div>
+
+      </header>
+
+
+
+      <div class="hero" id="hero">
+
+        <!-- Substitua photo.jpg -->
+
+        <img src="photo.jpg" alt="Foto da loja" onerror="this.style.filter='grayscale(1)';this.alt='Foto não encontrada'" />
+
+      </div>
+
+
+
+      <div class="content">
+
+        <div class="about">
+
+          <h2>Endereço</h2>
+
+          <div class="address">
+
+            <strong id="address-line">Rua Exemplo, 123 ? Bairro, Cidade - Estado</strong>
+
+            <p id="extra">Perto do ponto de referência. Atendimento presencial e retirada no local.</p>
+
+            <p style="margin-top:10px"><strong>Telefone:</strong> <span id="phone">(00) 0000-0000</span></p>
+
+            <p><strong>E-mail:</strong> <span id="email">contato@loja.com</span></p>
+
+          </div>
+
+
+
+          <h2 style="margin-top:18px">Sobre</h2>
+
+          <p id="desc">Breve descrição da loja ? o que vende, diferencial, tempo de mercado. Substitua este texto para falar rápido sobre a sua loja.</p>
+
+
+
+          <p style="margin-top:12px"><a class="btn" href="mailto:contato@loja.com">Enviar e?mail</a></p>
+
+        </div>
+
+
+
+        <aside>
+
+          <h2>Mapa</h2>
+
+          <div id="mapa" class="map">
+
+            <!-- Se quiser usar Google Maps: cole iframe do Google Maps aqui -->
+
+            <iframe id="gmaps" src="https://www.google.com/maps?q=Rua+Exemplo+123&output=embed" style="border:0;width:100%;height:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          </div>
+
+
+
+          <div style="margin-top:12px">
+
+            <p style="margin:6px 0 8px"><strong>Redes</strong></p>
+
+            <p style="margin:0;color:var(--muted)">Instagram: @sualoja · WhatsApp: (00) 00000-0000</p>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+
+
+      <footer>
+
+        © <span id="year"></span> Nome da Loja ? Endereço completo ? Criado com página simples
+
+      </footer>
+
+    </section>
+
+  </main>
+
+
+
+  <script>
+
+    // pequenas customizações via JS: atualize facilmente sem mexer no HTML
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+
+
+    // exemplo: se quiser trocar texto pelo querystring ?nome=Loja
+
+    const qs = new URLSearchParams(location.search);
+
+    if(qs.get('nome')) document.getElementById('store-name').textContent = qs.get('nome');
+
+    if(qs.get('end')) document.getElementById('address-line').textContent = qs.get('end');
+
+    if(qs.get('tel')) document.getElementById('phone').textContent = qs.get('tel');
+
+    if(qs.get('email')) document.getElementById('email').textContent = qs.get('email');
+
+    if(qs.get('desc')) document.getElementById('desc').textContent = qs.get('desc');
+
+  </script>
+
+</body>
+
+</html>
+
+
