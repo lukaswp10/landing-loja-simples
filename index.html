@@ -7,59 +7,165 @@
   <meta charset="utf-8" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#1f6feb" />
 
   <title>Nome da Loja ? Endereço</title>
 
   <meta name="description" content="Página de contato e endereço da Loja" />
 
   <style>
+    :root{
+      --bg:#f7f7f8;
+      --card:#ffffff;
+      --accent:#1f6feb;
+      --accent-700:#155ecb;
+      --muted:#667085;
+      --radius:14px;
+      --container-max:1100px;
+      --gap:18px;
+      --shadow:0 8px 30px rgba(15,15,15,0.08);
+      --brand-font-size:20px;
+    }
 
-    :root{--bg:#f7f7f8;--card:#ffffff;--accent:#1f6feb;--muted:#666;--radius:18px}
+    *,*::before,*::after{box-sizing:border-box}
 
-    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin:0;
+      background:var(--bg);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
 
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#111}
+    .container{
+      max-width:var(--container-max);
+      margin:28px auto;
+      padding:18px;
+    }
 
-    .container{max-width:980px;margin:36px auto;padding:20px}
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
 
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 22px rgba(15,15,15,0.08);overflow:hidden}
+    header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:18px 20px;
+      flex-wrap:wrap;
+    }
 
-    header{display:flex;align-items:center;gap:16px;padding:18px}
+    .logo{
+      width:86px;
+      height:86px;
+      border-radius:10px;
+      overflow:hidden;
+      background:#f3f4f6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+    }
 
-    .logo{width:86px;height:86px;border-radius:10px;overflow:hidden;background:#eee;display:flex;align-items:center;justify-content:center}
+    .logo img{width:100%;height:100%;object-fit:contain;display:block}
 
-    .logo img{width:100%;height:100%;object-fit:contain}
+    .brand{flex:1 1 auto;min-width:0}
+    .brand h1{margin:0;font-size:var(--brand-font-size);font-weight:700;letter-spacing:-0.2px}
+    .brand p{margin:6px 0 0;color:var(--muted);font-size:14px}
 
-    .brand{flex:1}
+    .actions{display:flex;gap:10px;align-items:center;flex:0 0 auto}
+    .actions .btn{white-space:nowrap}
 
-    .brand h1{margin:0;font-size:20px}
-
-    .brand p{margin:4px 0 0;color:var(--muted)}
-
-    .hero{height:420px;background:#ddd;display:block;overflow:hidden}
-
+    .hero{
+      height:460px;
+      display:block;
+      position:relative;
+      background:#e2e8f0;
+      overflow:hidden;
+    }
     .hero img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:flex-end;
+      padding:28px;
+      background:linear-gradient(180deg, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.28) 100%);
+    }
+    .hero-card{
+      color:#fff;
+      max-width:720px;
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .hero-card h2{margin:0;font-size:28px;line-height:1.05;font-weight:800}
+    .hero-card p{margin:0;font-size:15px;opacity:0.95}
 
-    .content{padding:22px;display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .content{
+      padding:22px;
+      display:grid;
+      grid-template-columns:1fr 340px;
+      gap:var(--gap);
+    }
 
-    .about h2{margin:0 0 10px}
+    .about h2{margin:0 0 10px;font-size:18px}
+    .address{background:#fbfdff;border-radius:12px;padding:14px;border:1px solid rgba(31,111,235,0.04)}
+    .address p{margin:6px 0;color:var(--muted);font-size:14px}
 
-    .address{background:#fafbff;border-radius:12px;padding:14px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:12px;
+      text-decoration:none;
+      background:var(--accent);
+      color:#fff;
+      font-weight:700;
+      font-size:15px;
+      box-shadow:0 6px 18px rgba(31,111,235,0.16);
+      transition:background .16s ease, transform .08s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.secondary{background:#eef2ff;color:var(--accent);font-weight:600;box-shadow:none;border:1px solid rgba(31,111,235,0.06)}
 
-    .address p{margin:6px 0;color:var(--muted)}
+    .map{width:100%;height:260px;border-radius:10px;overflow:hidden;background:#eaeaea}
+    aside .map{height:220px}
 
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;background:var(--accent);color:#fff;font-weight:600}
+    footer{
+      padding:18px;
+      border-top:1px solid rgba(15,15,15,0.04);
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
 
-    .map{width:100%;height:220px;border-radius:10px;overflow:hidden;background:#eaeaea}
+    /* Desktop niceties */
+    @media (min-width:1000px){
+      .hero{height:520px}
+      .hero-card h2{font-size:34px}
+    }
 
-    footer{padding:18px;border-top:1px solid rgba(0,0,0,0.04);text-align:center;color:var(--muted);font-size:13px}
-
-
-
-    /* responsivo */
-
-    @media (max-width:860px){.content{grid-template-columns:1fr}.hero{height:260px}.logo{width:64px;height:64px}}
-
+    /* responsivo móvel */
+    @media (max-width:860px){
+      .content{grid-template-columns:1fr; padding:16px}
+      .hero{height:320px}
+      .logo{width:64px;height:64px}
+      .brand h1{font-size:18px}
+      header{padding:12px}
+      .actions{width:100%;justify-content:flex-end}
+      .hero-overlay{align-items:flex-end;padding:16px}
+      .hero-card h2{font-size:20px}
+      .actions .btn{padding:10px 12px;font-size:14px}
+    }
   </style>
 
 </head>
@@ -71,39 +177,37 @@
     <section class="card">
 
       <header>
-
         <div class="logo" id="logo-placeholder">
-
           <!-- Substitua logo.png -->
-
           <img src="logo.png" alt="Logo da loja" onerror="this.style.filter='grayscale(1)';this.alt='Logo não encontrado'" />
-
         </div>
 
         <div class="brand">
-
           <h1 id="store-name">Nome da Loja</h1>
-
           <p id="store-sub">Horário: Seg-Sex 09:00?18:00 · Contato: (00) 0000-0000</p>
-
         </div>
 
-        <div>
-
-          <a class="btn" href="#mapa">Como chegar</a>
-
+        <div class="actions" aria-hidden="false">
+          <a class="btn secondary" href="tel:+550000000000" aria-label="Ligar para a loja">Ligar</a>
+          <a class="btn" href="#mapa" aria-label="Mostrar o mapa">Como chegar</a>
         </div>
-
       </header>
 
 
 
       <div class="hero" id="hero">
-
         <!-- Substitua photo.jpg -->
-
         <img src="photo.jpg" alt="Foto da loja" onerror="this.style.filter='grayscale(1)';this.alt='Foto não encontrada'" />
-
+        <div class="hero-overlay" aria-hidden="false">
+          <div class="hero-card" role="region" aria-label="Destaque da loja">
+            <h2 id="hero-title">Nome da Loja</h2>
+            <p id="hero-sub">A melhor loja da região ? atendimento humanizado, retirada e entrega rápida.</p>
+            <div style="margin-top:12px;display:flex;gap:12px;">
+              <a class="btn" href="#mapa">Ver no mapa</a>
+              <a class="btn secondary" href="mailto:contato@loja.com">Enviar e?mail</a>
+            </div>
+          </div>
+        </div>
       </div>
 
 
