@@ -3,7 +3,7 @@
 Página simples de landing para uma loja ? único arquivo HTML com CSS inline.
 
 Arquivos:
-- `Landing_Simples_loja.html` ? página principal (HTML + CSS inline).
+- `index.html` ? página principal (HTML + CSS inline).
 
 Como substituir as imagens
 - `logo.png`: coloque uma imagem quadrada (recomendado 300×300px) no mesmo diretório onde está o HTML, com nome `logo.png`. Formato recomendado: PNG ou SVG. O HTML já referencia `logo.png` no topo.
@@ -24,7 +24,7 @@ cd ~/landing-loja-simples
 
 ```bash
 python3 -m http.server 8000
-# então abra: http://localhost:8000/Landing_Simples_loja.html
+# então abra: http://localhost:8000/index.html
 ```
 
 Deploy rápido (drag & drop no Netlify)
@@ -39,7 +39,7 @@ Conectar ao Netlify usando GitHub (passos mínimos)
 ```bash
 cd ~/landing-loja-simples
 git init -b main
-git add Landing_Simples_loja.html README.md
+git add index.html README.md
 git commit -m "add landing page html + README"
 git remote add origin git@github.com:SEU_USUARIO/landing-loja-simples.git
 git push -u origin main
@@ -54,11 +54,9 @@ Upload via FTP (cPanel)
 - Exemplo de passos:
   1. Conectar: host = `seu_host_ftp`, user = `SEU_USUARIO`, password = `SUA_SENHA` (você insere manualmente).  
   2. Navegar até `public_html`.  
-  3. Arrastar `Landing_Simples_loja.html`, `logo.png` e `photo.jpg` para `public_html`.  
-  4. Acessar `https://seudominio.com/Landing_Simples_loja.html`.
+  3. Arrastar `index.html`, `logo.png` e `photo.jpg` para `public_html`.  
+  4. Acessar `https://seudominio.com/index.html`.
 
 Observações
 - Não execute deploys automáticos; os comandos acima são para você rodar manualmente.  
 - Commit sugerido: `add landing page html + README`.
-
-
