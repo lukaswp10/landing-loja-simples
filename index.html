@@ -167,18 +167,30 @@
       text-align:center;
     }
     .service-icon{
-      width:40px;
-      height:40px;
-      margin:0 auto 8px;
-      background:linear-gradient(135deg,var(--accent),#38bdf8);
-      border-radius:10px;
+      width:48px;
+      height:48px;
+      margin:0 auto 10px;
+      border-radius:12px;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:18px;
-      font-weight:700;
-      color:#fff;
     }
+    .service-icon svg{
+      width:26px;
+      height:26px;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      fill:none;
+    }
+    .service-icon.tela{background:linear-gradient(135deg,#f59e0b,#fbbf24);box-shadow:0 4px 16px rgba(245,158,11,0.35)}
+    .service-icon.tela svg{stroke:#fff}
+    .service-icon.bateria{background:linear-gradient(135deg,#22c55e,#4ade80);box-shadow:0 4px 16px rgba(34,197,94,0.35)}
+    .service-icon.bateria svg{stroke:#fff}
+    .service-icon.liquido{background:linear-gradient(135deg,#3b82f6,#60a5fa);box-shadow:0 4px 16px rgba(59,130,246,0.35)}
+    .service-icon.liquido svg{stroke:#fff}
+    .service-icon.venda{background:linear-gradient(135deg,#a855f7,#c084fc);box-shadow:0 4px 16px rgba(168,85,247,0.35)}
+    .service-icon.venda svg{stroke:#fff}
     .service-item p{margin:0;font-size:13px;color:var(--muted)}
 
     footer{
@@ -269,19 +281,27 @@
 
           <div class="services">
             <div class="service-item">
-              <div class="service-icon">T</div>
+              <div class="service-icon tela">
+                <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="8" y1="6" x2="12" y2="14"/><line x1="16" y1="6" x2="12" y2="14"/><line x1="12" y1="14" x2="12" y2="18"/></svg>
+              </div>
               <p>Reparo de Telas</p>
             </div>
             <div class="service-item">
-              <div class="service-icon">B</div>
+              <div class="service-icon bateria">
+                <svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="18" rx="1"/><line x1="6" y1="8" x2="18" y2="8"/><path d="M10 14l2-2 2 2"/><line x1="12" y1="12" x2="12" y2="18"/></svg>
+              </div>
               <p>Troca de Bateria</p>
             </div>
             <div class="service-item">
-              <div class="service-icon">L</div>
+              <div class="service-icon liquido">
+                <svg viewBox="0 0 24 24"><path d="M12 2c-3 4-6 6-6 10a6 6 0 0012 0c0-4-3-6-6-10z"/><path d="M12 18v-4"/><circle cx="12" cy="16" r="1" fill="#fff"/></svg>
+              </div>
               <p>Danos por Liquido</p>
             </div>
             <div class="service-item">
-              <div class="service-icon">V</div>
+              <div class="service-icon venda">
+                <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><line x1="6" y1="7" x2="18" y2="7"/><line x1="6" y1="17" x2="18" y2="17"/><circle cx="12" cy="19" r="1" fill="#fff"/></svg>
+              </div>
               <p>Venda de Celulares</p>
             </div>
           </div>
